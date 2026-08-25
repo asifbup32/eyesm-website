@@ -15,7 +15,7 @@ export default function CampaignsPage() {
         icon={<Megaphone aria-hidden="true" />}
         eyebrow="Exclusive Campaigns"
         title="Big campaigns are on the way"
-        description="We're building out dedicated national campaigns alongside our day-to-day initiatives. Check back soon, or join our WhatsApp group to hear about them first."
+        description="We're building out dedicated national campaigns alongside our day-to-day initiatives. Check back soon for updates."
         note="This page will feature EYESM Bangladesh's exclusive campaigns as they launch."
       />
       <CtaSection />

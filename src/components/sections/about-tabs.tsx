@@ -34,6 +34,7 @@ const tabItems = [
   { value: "about", label: "About Us" },
   { value: "values", label: "Our Values" },
   { value: "mission", label: "Our Mission" },
+  { value: "vision", label: "Our Vision" },
   { value: "area", label: "Area of Work" },
 ];
 
@@ -108,29 +109,30 @@ export function AboutTabs() {
         </TabsContent>
 
         <TabsContent value="mission" keepMounted className="mt-0">
-          <div className="flex flex-col gap-6">
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10">
-                <Target className="size-5 text-primary" aria-hidden="true" />
-              </div>
-              <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
-                Our Mission
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                {mission}
-              </p>
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+            <div className="flex size-11 items-center justify-center rounded-xl bg-primary/10">
+              <Target className="size-5 text-primary" aria-hidden="true" />
             </div>
-            <div className="rounded-2xl border border-border bg-card p-6">
-              <div className="flex size-11 items-center justify-center rounded-xl bg-accent/15">
-                <Eye className="size-5" style={{ color: "var(--accent)" }} aria-hidden="true" />
-              </div>
-              <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
-                Our Vision
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                {vision}
-              </p>
+            <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
+              Our Mission
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              {mission}
+            </p>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="vision" keepMounted className="mt-0">
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+            <div className="flex size-11 items-center justify-center rounded-xl bg-accent/15">
+              <Eye className="size-5" style={{ color: "var(--accent)" }} aria-hidden="true" />
             </div>
+            <h3 className="mt-4 font-heading text-lg font-semibold text-foreground">
+              Our Vision
+            </h3>
+            <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              {vision}
+            </p>
           </div>
         </TabsContent>
 

@@ -19,8 +19,8 @@ export function AboutSection() {
       <Reveal delay={0.1}>
         <div className="relative my-10 aspect-[21/9] w-full overflow-hidden rounded-3xl">
           <Image
-            src="/images/initiatives/community-discussion.jpeg"
-            alt="EYESM Bangladesh volunteers holding a community discussion session outdoors"
+            src="/images/gallery/art-showcase-2.jpeg"
+            alt="Students drawing together during the “My Dream Bangladesh” art competition"
             fill
             sizes="(min-width: 1024px) 1152px, 100vw"
             className="object-cover"

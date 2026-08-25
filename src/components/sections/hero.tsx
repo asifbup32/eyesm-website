@@ -10,11 +10,7 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import {
-  ArrowUpRight,
-  Users,
-  WhatsappLogo,
-} from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, Users } from "@phosphor-icons/react/dist/ssr";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { pillars, site } from "@/lib/site-data";
@@ -25,7 +21,7 @@ const heroSlides = [
   { src: "/images/initiatives/tree-plantation.jpeg", alt: "" },
   { src: "/images/initiatives/art-competition.jpeg", alt: "" },
   { src: "/images/initiatives/school-awareness.jpeg", alt: "" },
-  { src: "/images/initiatives/community-discussion.jpeg", alt: "" },
+  { src: "/images/gallery/art-showcase-1.jpeg", alt: "" },
 ];
 
 function HeroSlideshow() {
@@ -259,20 +255,6 @@ export function Hero() {
                 aria-hidden="true"
               />
             </Link>
-          </motion.div>
-          <motion.div whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-            <a
-              href={site.whatsappGroup}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={cn(
-                buttonVariants({ size: "lg", variant: "outline" }),
-                "h-11 cursor-pointer gap-2 rounded-full border-[#25D366]/50 bg-[#25D366]/15 px-6 text-white hover:bg-[#25D366]/25 hover:text-white"
-              )}
-            >
-              <WhatsappLogo className="size-5" weight="fill" aria-hidden="true" />
-              Join WhatsApp
-            </a>
           </motion.div>
           <motion.div whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={{ scale: 0.97 }}>
             <Link

@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowUpRight, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/motion/reveal";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { site } from "@/lib/site-data";
 
 export function CtaSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -53,20 +52,6 @@ export function CtaSection() {
                     aria-hidden="true"
                   />
                 </Link>
-              </motion.div>
-              <motion.div whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                <a
-                  href={site.whatsappGroup}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    buttonVariants({ size: "lg", variant: "outline" }),
-                    "h-11 cursor-pointer gap-2 rounded-full border-[#25D366]/50 bg-[#25D366]/15 px-6 text-white hover:bg-[#25D366]/25 hover:text-white"
-                  )}
-                >
-                  <WhatsappLogo className="size-5" weight="fill" aria-hidden="true" />
-                  WhatsApp
-                </a>
               </motion.div>
               <motion.div whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <Link

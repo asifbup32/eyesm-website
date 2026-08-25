@@ -5,14 +5,13 @@ import {
   Phone,
 } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/motion/reveal";
-import { JoinCards } from "@/components/sections/join-cards";
 import { RegistrationFormEmbed } from "@/components/sections/registration-form-embed";
 import { site } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Join & Contact",
   description:
-    "Join EYESM Bangladesh — register through our official form, join our WhatsApp group, or reach out directly by email, phone, or Facebook.",
+    "Join EYESM Bangladesh — register through our official form, or reach out directly by email, phone, or Facebook.",
 };
 
 const contactPoints = [
@@ -63,10 +62,6 @@ export default function ContactPage() {
             </p>
           </Reveal>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        <JoinCards />
       </section>
 
       <section className="bg-secondary/40">

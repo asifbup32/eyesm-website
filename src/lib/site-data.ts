@@ -5,7 +5,6 @@ export const site = {
   phone: "+880 1985-905411",
   facebook: "https://facebook.com/EYESMBangladesh",
   facebookLabel: "EYESM Bangladesh",
-  whatsappGroup: "https://chat.whatsapp.com/JWkm3lkDPSTF5GtFDCHLts?s=cl&p=a&ilr=1",
   registrationForm:
     "https://docs.google.com/forms/d/e/1FAIpQLSfg9sA9KTFLIUzUE613EoV86ZSW668Ciaj_l4Km57sJFsEuXw/viewform",
 };
@@ -174,21 +173,89 @@ export const initiativeFilters: ("All" | InitiativeCategory)[] = [
   "Fests and Events",
 ];
 
+export const galleryPhotos: { src: string; alt: string; caption: string }[] = [
+  {
+    src: "/images/gallery/art-showcase-1.jpeg",
+    alt: "A student proudly showing her hand-drawn artwork during the art competition",
+    caption: "“My Dream Bangladesh” Art Competition",
+  },
+  {
+    src: "/images/gallery/art-showcase-2.jpeg",
+    alt: "Students drawing together on the floor during the art competition",
+    caption: "“My Dream Bangladesh” Art Competition",
+  },
+  {
+    src: "/images/initiatives/tree-plantation.jpeg",
+    alt: "Students planting saplings together at the Bogura tree plantation program",
+    caption: "Tree Plantation Program, Bogura",
+  },
+  {
+    src: "/images/gallery/tree-planting-closeup.jpeg",
+    alt: "Close-up of students planting a young tree together",
+    caption: "Tree Plantation Program",
+  },
+  {
+    src: "/images/gallery/tree-planting-2.jpeg",
+    alt: "A volunteer planting a sapling as students look on",
+    caption: "Tree Plantation Program",
+  },
+  {
+    src: "/images/initiatives/school-awareness.jpeg",
+    alt: "Students raising their hands during an interactive school awareness session in Rangpur Division",
+    caption: "School Awareness Session, Rangpur Division",
+  },
+  {
+    src: "/images/gallery/classroom-quiz.jpeg",
+    alt: "Volunteers leading an interactive classroom quiz session",
+    caption: "School Awareness Session",
+  },
+  {
+    src: "/images/gallery/classroom-session.jpeg",
+    alt: "Students in a classroom during an EYESM Bangladesh session",
+    caption: "School Engagement",
+  },
+  {
+    src: "/images/gallery/school-campus.jpeg",
+    alt: "Students on a school campus during an EYESM Bangladesh visit",
+    caption: "School Engagement",
+  },
+  {
+    src: "/images/gallery/award-ceremony.jpeg",
+    alt: "EYESM Bangladesh volunteers presenting an award to a student",
+    caption: "Recognition & Awards",
+  },
+];
+
 export const executiveMembers = [
   {
     name: "Mst. Sadia Newaz",
-    role: "Founder and Executive Director",
+    role: "Founder and Chief Executive Director",
+    bio: "Leads EYESM Bangladesh's overall vision and strategy, driving its mission to empower youth and build a more sustainable Bangladesh.",
     image: "/images/members/sadia-newaz.jpeg",
   },
   {
     name: "Mahmud Hasan Khan Shimul",
     role: "Co-Founder and Director",
+    bio: "Helps shape EYESM Bangladesh's direction and partnerships, working to expand the organization's reach and impact.",
     image: "/images/members/shimul.jpeg",
   },
   {
     name: "Nowshin Tabasum",
     role: "General Secretary",
+    bio: "Coordinates EYESM Bangladesh's programs and operations, keeping the team's initiatives organized and on track.",
     image: "/images/members/nowshin-tabasum.png",
+  },
+  {
+    name: "Md. Asif Ekbal Khan",
+    role: "Executive Member",
+    bio: "Contributes to EYESM Bangladesh's youth leadership and community engagement initiatives.",
+    image: "/images/members/asif-ekbal-khan.jpg",
+  },
+  {
+    name: "Mowmita Rani Dey",
+    role: "Executive Member",
+    bio: "Supports EYESM Bangladesh's education and outreach programs across communities.",
+    image: "/images/members/mowmita-rani-dey.jpeg",
   },
 ];
 
@@ -196,13 +263,20 @@ export const adviserPanel = [
   {
     name: "Muhammad Yeasir",
     role: "Founder and Managing Director of TESOL Bangladesh",
+    bio: "Advises EYESM Bangladesh on education strategy and youth skill development.",
     image: "/images/members/muhammad-yeasir.jpeg",
   },
   {
     name: "Efatara Era",
-    role: "Host, Channel i and Media Consultant, Prokiti o Jibon Foundation",
+    role: "Host, Channel i and Media Consultant, Prokriti O Jibon Foundation",
+    bio: "Advises EYESM Bangladesh on media outreach and environmental communication.",
     image: "/images/members/efatara-era.jpeg",
   },
+];
+
+export const partners: { name: string; logo: string }[] = [
+  { name: "YouthX", logo: "/images/partners/youthx.jpeg" },
+  { name: "TESOL Bangladesh", logo: "/images/partners/tesol-bangladesh.jpeg" },
 ];
 
 export const navLinks = [

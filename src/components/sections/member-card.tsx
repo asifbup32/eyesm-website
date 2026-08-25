@@ -14,11 +14,13 @@ const accentColors = [
 export function MemberCard({
   name,
   role,
+  bio,
   image,
   index = 0,
 }: {
   name: string;
   role: string;
+  bio?: string;
   image: string;
   index?: number;
 }) {
@@ -27,7 +29,7 @@ export function MemberCard({
 
   return (
     <motion.div
-      className="group relative h-full overflow-hidden rounded-3xl bg-card"
+      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card"
       whileHover={shouldReduceMotion ? undefined : { y: -10 }}
       transition={{ type: "spring", stiffness: 280, damping: 20 }}
       style={{ boxShadow: "0 1px 2px rgb(0 0 0 / 0.06)" }}
@@ -39,7 +41,7 @@ export function MemberCard({
         aria-hidden="true"
       />
 
-      <div className="relative aspect-[4/5] w-full overflow-hidden">
+      <div className="relative aspect-[4/5] w-full shrink-0 overflow-hidden">
         <motion.div
           className="absolute inset-0"
           whileHover={shouldReduceMotion ? undefined : { scale: 1.08 }}
@@ -54,7 +56,7 @@ export function MemberCard({
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
         <div className="absolute right-5 top-5" aria-hidden="true">
           {!shouldReduceMotion && (
@@ -76,13 +78,20 @@ export function MemberCard({
           style={{ background: accent }}
           aria-hidden="true"
         />
+      </div>
 
-        <div className="absolute inset-x-0 bottom-0 p-6">
-          <h3 className="font-heading text-lg font-semibold text-white">
-            {name}
-          </h3>
-          <p className="mt-1 text-sm leading-snug text-white/80">{role}</p>
-        </div>
+      <div className="flex flex-1 flex-col p-6">
+        <h3 className="font-heading text-lg font-semibold text-foreground">
+          {name}
+        </h3>
+        <p className="mt-1 text-sm font-medium" style={{ color: accent }}>
+          {role}
+        </p>
+        {bio && (
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            {bio}
+          </p>
+        )}
       </div>
     </motion.div>
   );

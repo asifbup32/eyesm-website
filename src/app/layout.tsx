@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins, Open_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
-import { WhatsAppFab } from "@/components/whatsapp-fab";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -54,7 +53,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <SiteFooter />
-        <WhatsAppFab />
       </body>
     </html>
   );
