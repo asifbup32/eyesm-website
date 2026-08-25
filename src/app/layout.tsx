@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "A youth-led non-profit building a greener, healthier, and more sustainable Bangladesh.",
     siteName: "EYESM Bangladesh",
-    images: ["/images/logo.png"],
+    images: ["/images/logo-wordmark.png"],
     locale: "en_US",
     type: "website",
   },

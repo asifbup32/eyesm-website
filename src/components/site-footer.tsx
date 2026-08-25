@@ -13,18 +13,13 @@ export function SiteFooter() {
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/logo.png"
-                alt="EYESM Bangladesh logo"
-                width={40}
-                height={40}
-                className="h-10 w-10 object-contain"
-              />
-              <span className="font-heading text-lg font-semibold text-primary">
-                EYESM Bangladesh
-              </span>
-            </div>
+            <Image
+              src="/images/logo-wordmark.png"
+              alt="EYESM Bangladesh"
+              width={172}
+              height={42}
+              className="h-10 w-auto object-contain"
+            />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               {site.tagline} A youth-led, non-profit, non-political, and
               volunteer-driven organization creating positive and sustainable

@@ -2,27 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { CtaSection } from "@/components/sections/cta-section";
-import {
-  initiatives,
-  executiveMembers,
-  adviserPanel,
-} from "@/lib/site-data";
+import { initiatives } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Gallery",
-  description: "Photos from EYESM Bangladesh's programs, events, and people.",
+  description: "Photos from EYESM Bangladesh's programs and events.",
 };
 
 const activityPhotos = initiatives.map((item) => ({
   src: item.image,
   alt: item.imageAlt,
   caption: item.title,
-}));
-
-const peoplePhotos = [...executiveMembers, ...adviserPanel].map((member) => ({
-  src: member.image,
-  alt: `Portrait of ${member.name}`,
-  caption: `${member.name} — ${member.role}`,
 }));
 
 export default function GalleryPage() {
@@ -38,20 +28,15 @@ export default function GalleryPage() {
               Moments from the field
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Snapshots from our tree plantation drives, art competitions,
-              awareness sessions, and the people driving it all.
+              Snapshots from our tree plantation drives, art competitions, and
+              awareness sessions.
             </p>
           </Reveal>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-        <Reveal>
-          <h2 className="font-heading text-2xl font-semibold text-foreground">
-            Programs &amp; Events
-          </h2>
-        </Reveal>
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
+        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
           {activityPhotos.map((photo) => (
             <StaggerItem key={photo.src}>
               <figure className="overflow-hidden rounded-3xl border border-border bg-card">
@@ -71,39 +56,6 @@ export default function GalleryPage() {
             </StaggerItem>
           ))}
         </Stagger>
-
-        <Reveal className="mt-16">
-          <h2 className="font-heading text-2xl font-semibold text-foreground">
-            People Behind EYESM Bangladesh
-          </h2>
-        </Reveal>
-        <Stagger className="mt-8 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-5">
-          {peoplePhotos.map((photo) => (
-            <StaggerItem key={photo.src}>
-              <figure className="overflow-hidden rounded-2xl border border-border bg-card">
-                <div className="relative aspect-square w-full">
-                  <Image
-                    src={photo.src}
-                    alt={photo.alt}
-                    fill
-                    sizes="(min-width: 1024px) 20vw, (min-width: 640px) 33vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-                <figcaption className="px-3 py-2.5 text-xs font-medium leading-snug text-foreground">
-                  {photo.caption}
-                </figcaption>
-              </figure>
-            </StaggerItem>
-          ))}
-        </Stagger>
-
-        <Reveal className="mt-14" delay={0.1}>
-          <p className="text-center text-sm text-muted-foreground">
-            More photos from our national team and volunteers will be added
-            here soon.
-          </p>
-        </Reveal>
       </section>
 
       <CtaSection />

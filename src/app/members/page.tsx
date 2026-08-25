@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
+import { MemberCard } from "@/components/sections/member-card";
 import { CtaSection } from "@/components/sections/cta-section";
 import { executiveMembers, adviserPanel } from "@/lib/site-data";
 
@@ -9,36 +9,6 @@ export const metadata: Metadata = {
   description:
     "Meet the executive members and adviser panel behind EYESM Bangladesh.",
 };
-
-function MemberCard({
-  name,
-  role,
-  image,
-}: {
-  name: string;
-  role: string;
-  image: string;
-}) {
-  return (
-    <div className="flex h-full flex-col items-center rounded-3xl border border-border bg-card p-8 text-center">
-      <div className="relative size-28 overflow-hidden rounded-full bg-secondary ring-4 ring-primary/10">
-        <Image
-          src={image}
-          alt={`Portrait of ${name}`}
-          fill
-          sizes="112px"
-          className="object-cover"
-        />
-      </div>
-      <h3 className="mt-5 font-heading text-lg font-semibold text-foreground">
-        {name}
-      </h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-        {role}
-      </p>
-    </div>
-  );
-}
 
 export default function MembersPage() {
   return (
@@ -62,10 +32,10 @@ export default function MembersPage() {
             Executive Members
           </h2>
         </Reveal>
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {executiveMembers.map((member) => (
+        <Stagger className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {executiveMembers.map((member, i) => (
             <StaggerItem key={member.name}>
-              <MemberCard {...member} />
+              <MemberCard {...member} index={i} />
             </StaggerItem>
           ))}
         </Stagger>
@@ -75,10 +45,10 @@ export default function MembersPage() {
             Adviser Panel
           </h2>
         </Reveal>
-        <Stagger className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {adviserPanel.map((member) => (
+        <Stagger className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {adviserPanel.map((member, i) => (
             <StaggerItem key={member.name}>
-              <MemberCard {...member} />
+              <MemberCard {...member} index={i + executiveMembers.length} />
             </StaggerItem>
           ))}
         </Stagger>

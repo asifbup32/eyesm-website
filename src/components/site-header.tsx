@@ -23,18 +23,15 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" className="flex shrink-0 items-center">
           <Image
-            src="/images/logo.png"
-            alt="EYESM Bangladesh logo"
-            width={44}
-            height={44}
-            className="h-10 w-10 object-contain sm:h-11 sm:w-11"
+            src="/images/logo-wordmark.png"
+            alt="EYESM Bangladesh"
+            width={172}
+            height={42}
+            className="h-9 w-auto object-contain sm:h-11"
             priority
           />
-          <span className="font-heading text-lg font-semibold tracking-tight text-primary sm:text-xl">
-            EYESM <span className="font-normal text-foreground">Bangladesh</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -85,18 +82,15 @@ export function SiteHeader() {
                 <Link
                   href="/"
                   onClick={() => setOpen(false)}
-                  className="flex items-center gap-3"
+                  className="flex items-center"
                 >
                   <Image
-                    src="/images/logo.png"
-                    alt="EYESM Bangladesh logo"
-                    width={36}
+                    src="/images/logo-wordmark.png"
+                    alt="EYESM Bangladesh"
+                    width={148}
                     height={36}
-                    className="h-9 w-9 object-contain"
+                    className="h-8 w-auto object-contain"
                   />
-                  <span className="font-heading text-base font-semibold text-primary">
-                    EYESM Bangladesh
-                  </span>
                 </Link>
               </SheetTitle>
             </SheetHeader>
