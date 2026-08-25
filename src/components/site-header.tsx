@@ -24,7 +24,7 @@ export function SiteHeader() {
   const contactLink = navLinks[navLinks.length - 1];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/40 bg-background/60 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset] backdrop-blur-xl backdrop-saturate-150">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-5 sm:px-8">
         <Link href="/" className="flex shrink-0 items-center">
           <Image
@@ -92,7 +92,10 @@ export function SiteHeader() {
           >
             <List className="size-6" weight="bold" />
           </SheetTrigger>
-          <SheetContent side="right" className="w-[85vw] max-w-sm">
+          <SheetContent
+            side="right"
+            className="w-[85vw] max-w-sm border-l border-white/40 bg-popover/85 backdrop-blur-xl backdrop-saturate-150"
+          >
             <SheetHeader>
               <SheetTitle>
                 <Link

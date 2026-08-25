@@ -276,7 +276,7 @@ export function Hero() {
           </motion.div>
           <motion.div whileHover={shouldReduceMotion ? undefined : { scale: 1.04 }} whileTap={{ scale: 0.97 }}>
             <Link
-              href="/about"
+              href="/#about"
               className={cn(
                 buttonVariants({ size: "lg", variant: "outline" }),
                 "h-11 cursor-pointer rounded-full border-white/40 bg-transparent px-6 text-white hover:bg-white/10 hover:text-white"

@@ -207,7 +207,6 @@ export const adviserPanel = [
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
   { href: "/campaigns", label: "Campaigns" },
   { href: "/initiatives", label: "Initiatives" },
   { href: "/gallery", label: "Gallery" },

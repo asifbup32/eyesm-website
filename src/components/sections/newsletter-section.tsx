@@ -5,6 +5,7 @@ import { EnvelopeSimple, PaperPlaneTilt } from "@phosphor-icons/react/dist/ssr";
 import { Reveal } from "@/components/motion/reveal";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { DecorativeBlobs } from "@/components/decorative-blobs";
 import { site } from "@/lib/site-data";
 
 export function NewsletterSection() {
@@ -22,9 +23,10 @@ export function NewsletterSection() {
   }
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
-      <Reveal>
-        <div className="rounded-3xl border border-border bg-card px-6 py-12 text-center sm:px-12 sm:py-16">
+    <section className="relative mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+      <DecorativeBlobs variant="scattered" />
+      <Reveal className="relative">
+        <div className="rounded-3xl border border-white/50 bg-card/70 px-6 py-12 text-center shadow-xl shadow-black/5 backdrop-blur-xl backdrop-saturate-150 sm:px-12 sm:py-16">
           <div className="mx-auto flex size-12 items-center justify-center rounded-2xl bg-primary/10">
             <EnvelopeSimple className="size-6 text-primary" aria-hidden="true" />
           </div>

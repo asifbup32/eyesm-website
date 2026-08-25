@@ -60,7 +60,7 @@ export function NavMoreDropdown() {
             exit={{ opacity: 0, y: -6, scale: 0.98 }}
             transition={{ duration: 0.15, ease: [0.22, 1, 0.36, 1] }}
             role="menu"
-            className="absolute left-0 top-full z-50 mt-2 w-56 overflow-hidden rounded-2xl border border-border bg-card p-1.5 shadow-lg shadow-black/5"
+            className="absolute left-0 top-full z-50 mt-2 w-56 overflow-hidden rounded-2xl border border-white/50 bg-card/80 p-1.5 shadow-xl shadow-black/10 backdrop-blur-xl backdrop-saturate-150"
           >
             {moreLinks.map((link) => {
               const isActive = pathname.startsWith(link.href);
