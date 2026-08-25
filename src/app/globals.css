@@ -1,0 +1,163 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-geist-mono);
+  --color-pillar-people: var(--pillar-people);
+  --color-pillar-environment: var(--pillar-environment);
+  --color-pillar-mindset: var(--pillar-mindset);
+  --color-pillar-education: var(--pillar-education);
+  --color-pillar-sustainability: var(--pillar-sustainability);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: #FBFAF5;
+  --foreground: #17241C;
+  --card: #FFFFFF;
+  --card-foreground: #17241C;
+  --popover: #FFFFFF;
+  --popover-foreground: #17241C;
+  --primary: #155A32;
+  --primary-foreground: #FFFFFF;
+  --secondary: #EAF3EA;
+  --secondary-foreground: #155A32;
+  --muted: #F1F0E8;
+  --muted-foreground: #5B6B60;
+  --accent: #E8A23A;
+  --accent-foreground: #221604;
+  --destructive: #C0392B;
+  --border: #E3E2D6;
+  --input: #E3E2D6;
+  --ring: #2E9E5B;
+  --chart-1: #2E9E5B;
+  --chart-2: #1F8A9E;
+  --chart-3: #5B3A87;
+  --chart-4: #E8A23A;
+  --chart-5: #2E6CA4;
+  --radius: 1rem;
+
+  --pillar-people: #1F8A9E;
+  --pillar-environment: #2E9E5B;
+  --pillar-mindset: #5B3A87;
+  --pillar-education: #E8A23A;
+  --pillar-education-fg: #A8650B;
+  --pillar-sustainability: #2E6CA4;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #17241C;
+  --sidebar-primary: #155A32;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #EAF3EA;
+  --sidebar-accent-foreground: #155A32;
+  --sidebar-border: #E3E2D6;
+  --sidebar-ring: #2E9E5B;
+}
+
+.dark {
+  --background: #0F1813;
+  --foreground: #EDF3EC;
+  --card: #16211B;
+  --card-foreground: #EDF3EC;
+  --popover: #16211B;
+  --popover-foreground: #EDF3EC;
+  --primary: #48C27E;
+  --primary-foreground: #0B140F;
+  --secondary: #1D2B22;
+  --secondary-foreground: #C9E8D3;
+  --muted: #1D2B22;
+  --muted-foreground: #9FB3A6;
+  --accent: #F0B255;
+  --accent-foreground: #221604;
+  --destructive: #E05A48;
+  --border: color-mix(in oklab, #EDF3EC 12%, transparent);
+  --input: color-mix(in oklab, #EDF3EC 15%, transparent);
+  --ring: #48C27E;
+  --chart-1: #48C27E;
+  --chart-2: #4FC7DE;
+  --chart-3: #A88CD8;
+  --chart-4: #F0B255;
+  --chart-5: #6FA9DE;
+
+  --pillar-people: #4FC7DE;
+  --pillar-environment: #48C27E;
+  --pillar-mindset: #A88CD8;
+  --pillar-education: #F0B255;
+  --pillar-education-fg: #F0B255;
+  --pillar-sustainability: #6FA9DE;
+
+  --sidebar: #16211B;
+  --sidebar-foreground: #EDF3EC;
+  --sidebar-primary: #48C27E;
+  --sidebar-primary-foreground: #0B140F;
+  --sidebar-accent: #1D2B22;
+  --sidebar-accent-foreground: #C9E8D3;
+  --sidebar-border: color-mix(in oklab, #EDF3EC 12%, transparent);
+  --sidebar-ring: #48C27E;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans scroll-smooth;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

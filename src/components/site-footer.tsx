@@ -1,0 +1,102 @@
+import Image from "next/image";
+import Link from "next/link";
+import {
+  EnvelopeSimple,
+  FacebookLogo,
+  Phone,
+} from "@phosphor-icons/react/dist/ssr";
+import { navLinks, site } from "@/lib/site-data";
+
+export function SiteFooter() {
+  return (
+    <footer className="border-t border-border bg-secondary/40">
+      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <div className="flex items-center gap-3">
+              <Image
+                src="/images/logo.png"
+                alt="EYESM Bangladesh logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
+              <span className="font-heading text-lg font-semibold text-primary">
+                EYESM Bangladesh
+              </span>
+            </div>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              {site.tagline} A youth-led, non-profit, non-political, and
+              volunteer-driven organization creating positive and sustainable
+              change across Bangladesh.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-foreground">
+              Explore
+            </h3>
+            <ul className="mt-2 flex flex-col">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="flex min-h-8 cursor-pointer items-center py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-foreground">
+              Contact
+            </h3>
+            <ul className="mt-4 flex flex-col gap-3">
+              <li>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="flex min-h-8 cursor-pointer items-center gap-2.5 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <EnvelopeSimple className="size-4 shrink-0" aria-hidden="true" />
+                  <span className="break-words">{site.email}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}
+                  className="flex min-h-8 cursor-pointer items-center gap-2.5 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <Phone className="size-4 shrink-0" aria-hidden="true" />
+                  <span>{site.phone}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={site.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex min-h-8 cursor-pointer items-center gap-2.5 py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  <FacebookLogo className="size-4 shrink-0" aria-hidden="true" />
+                  <span>{site.facebookLabel}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
+          <p className="text-xs text-muted-foreground">
+            &copy; {new Date().getFullYear()} EYESM Bangladesh. All rights reserved.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            Empowering Lives. Sustaining Tomorrow.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
