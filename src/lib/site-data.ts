@@ -208,8 +208,17 @@ export const adviserPanel = [
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/campaigns", label: "Campaigns" },
   { href: "/initiatives", label: "Initiatives" },
   { href: "/gallery", label: "Gallery" },
   { href: "/members", label: "Members" },
   { href: "/contact", label: "Contact" },
 ];
+
+export const moreLinks = [
+  { href: "/blogs", label: "Blogs" },
+  { href: "/news-and-media", label: "News & Media" },
+  { href: "/our-partners", label: "Our Partners" },
+];
+
+export const allNavLinks = [...navLinks.slice(0, -1), ...moreLinks, navLinks[navLinks.length - 1]];

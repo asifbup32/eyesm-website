@@ -5,13 +5,17 @@ import {
   FacebookLogo,
   Phone,
 } from "@phosphor-icons/react/dist/ssr";
-import { navLinks, site } from "@/lib/site-data";
+import { allNavLinks, site } from "@/lib/site-data";
 
 export function SiteFooter() {
+  const mid = Math.ceil(allNavLinks.length / 2);
+  const col1 = allNavLinks.slice(0, mid);
+  const col2 = allNavLinks.slice(mid);
+
   return (
     <footer className="border-t border-border bg-secondary/40">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_0.7fr_0.7fr_1fr]">
           <div>
             <Image
               src="/images/logo-wordmark.png"
@@ -32,7 +36,25 @@ export function SiteFooter() {
               Explore
             </h3>
             <ul className="mt-2 flex flex-col">
-              {navLinks.map((link) => (
+              {col1.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="flex min-h-8 cursor-pointer items-center py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-foreground">
+              More
+            </h3>
+            <ul className="mt-2 flex flex-col">
+              {col2.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

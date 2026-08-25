@@ -34,23 +34,6 @@ export default function InitiativesPage() {
         <InitiativesFilter />
       </section>
 
-      <section className="border-t border-border bg-secondary/40">
-        <div className="mx-auto max-w-3xl px-5 py-16 text-center sm:px-8 sm:py-20">
-          <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-              Campaigns
-            </p>
-            <h2 className="mt-3 font-heading text-2xl font-semibold text-foreground sm:text-3xl">
-              Our campaigns are on the way
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              We&apos;re preparing to launch dedicated campaigns alongside our
-              initiatives — check back soon for updates.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       <CtaSection />
     </>
   );

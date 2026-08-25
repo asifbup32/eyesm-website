@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { List } from "@phosphor-icons/react/dist/ssr";
 import { buttonVariants } from "@/components/ui/button";
+import { NavMoreDropdown } from "@/components/nav-more-dropdown";
 import {
   Sheet,
   SheetContent,
@@ -13,12 +14,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { navLinks } from "@/lib/site-data";
+import { navLinks, allNavLinks } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const primaryLinks = navLinks.slice(0, -1);
+  const contactLink = navLinks[navLinks.length - 1];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
@@ -34,8 +37,8 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
-          {navLinks.map((link) => {
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          {primaryLinks.map((link) => {
             const active =
               link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
             return (
@@ -54,13 +57,26 @@ export function SiteHeader() {
               </Link>
             );
           })}
+          <NavMoreDropdown />
+          <Link
+            href={contactLink.href}
+            className={cn(
+              "flex min-h-11 cursor-pointer items-center rounded-full px-4 text-sm font-medium transition-colors duration-200",
+              pathname.startsWith(contactLink.href)
+                ? "bg-secondary text-primary"
+                : "text-foreground/75 hover:bg-secondary/70 hover:text-primary"
+            )}
+            aria-current={pathname.startsWith(contactLink.href) ? "page" : undefined}
+          >
+            {contactLink.label}
+          </Link>
         </nav>
 
         <Link
           href="/contact"
           className={cn(
             buttonVariants({ size: "lg" }),
-            "hidden h-11 cursor-pointer rounded-full px-6 md:inline-flex"
+            "hidden h-11 cursor-pointer rounded-full px-6 lg:inline-flex"
           )}
         >
           Get Involved
@@ -70,7 +86,7 @@ export function SiteHeader() {
           <SheetTrigger
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
-              "size-11 cursor-pointer md:hidden"
+              "size-11 cursor-pointer lg:hidden"
             )}
             aria-label="Open menu"
           >
@@ -94,8 +110,8 @@ export function SiteHeader() {
                 </Link>
               </SheetTitle>
             </SheetHeader>
-            <nav className="mt-4 flex flex-col gap-1 px-4" aria-label="Mobile">
-              {navLinks.map((link) => {
+            <nav className="mt-4 flex max-h-[70vh] flex-col gap-1 overflow-y-auto px-4" aria-label="Mobile">
+              {allNavLinks.map((link) => {
                 const active =
                   link.href === "/"
                     ? pathname === "/"

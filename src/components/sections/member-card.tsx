@@ -56,6 +56,21 @@ export function MemberCard({
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
 
+        <div className="absolute right-5 top-5" aria-hidden="true">
+          {!shouldReduceMotion && (
+            <motion.span
+              className="absolute inset-0 rounded-full"
+              style={{ background: accent }}
+              animate={{ scale: [1, 1.8, 1.8], opacity: [0.5, 0, 0] }}
+              transition={{ duration: 2.4, repeat: Infinity, ease: "easeOut" }}
+            />
+          )}
+          <span
+            className="relative block size-3 rounded-full ring-2 ring-white/60"
+            style={{ background: accent }}
+          />
+        </div>
+
         <span
           className="absolute left-5 top-5 h-1.5 w-8 rounded-full"
           style={{ background: accent }}
