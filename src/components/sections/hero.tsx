@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
+  AnimatePresence,
   motion,
   useReducedMotion,
   useScroll,
@@ -19,6 +20,76 @@ import { cn } from "@/lib/utils";
 import { pillars, site } from "@/lib/site-data";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
+
+const heroSlides = [
+  { src: "/images/initiatives/tree-plantation.jpeg", alt: "" },
+  { src: "/images/initiatives/art-competition.jpeg", alt: "" },
+  { src: "/images/initiatives/school-awareness.jpeg", alt: "" },
+  { src: "/images/initiatives/community-discussion.jpeg", alt: "" },
+];
+
+function HeroSlideshow() {
+  const shouldReduceMotion = useReducedMotion();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (shouldReduceMotion) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(id);
+  }, [shouldReduceMotion]);
+
+  return (
+    <>
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={index}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: EASE }}
+        >
+          <Image
+            src={heroSlides[index].src}
+            alt={heroSlides[index].alt}
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className="object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {!shouldReduceMotion && (
+        <div
+          className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-2"
+          role="group"
+          aria-label="Hero background photo selector"
+        >
+          {heroSlides.map((slide, i) => (
+            <button
+              key={slide.src}
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`Show background photo ${i + 1} of ${heroSlides.length}`}
+              aria-current={i === index}
+              className="cursor-pointer p-1.5"
+            >
+              <span
+                className={cn(
+                  "block h-1.5 rounded-full transition-all duration-300",
+                  i === index ? "w-6 bg-white" : "w-1.5 bg-white/40"
+                )}
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
 
 function AnimatedHeadline({ text }: { text: string }) {
   const shouldReduceMotion = useReducedMotion();
@@ -106,20 +177,12 @@ export function Hero() {
 
   return (
     <section ref={sectionRef} className="relative isolate overflow-hidden bg-primary">
-      {/* Real photo from our tree plantation program, with scroll parallax */}
+      {/* Rotating background photos from our real programs, with scroll parallax */}
       <motion.div
         className="absolute inset-0"
-        aria-hidden="true"
         style={shouldReduceMotion ? undefined : { y: imageY, scale: 1.15 }}
       >
-        <Image
-          src="/images/initiatives/tree-plantation.jpeg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <HeroSlideshow />
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/85 to-primary/55" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_color-mix(in_oklab,var(--pillar-environment)_30%,transparent),_transparent_55%)]" />
       </motion.div>

@@ -3,6 +3,7 @@ import { PillarsSection } from "@/components/sections/pillars-section";
 import { MissionVisionSection } from "@/components/sections/mission-vision";
 import { ValuesSection } from "@/components/sections/values-section";
 import { InitiativesPreview } from "@/components/sections/initiatives-preview";
+import { NewsletterSection } from "@/components/sections/newsletter-section";
 import { CtaSection } from "@/components/sections/cta-section";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <MissionVisionSection />
       <ValuesSection />
       <InitiativesPreview />
+      <NewsletterSection />
       <CtaSection />
     </>
   );
